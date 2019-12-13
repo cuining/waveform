@@ -8,6 +8,7 @@ export interface WaveformProps {
   onMouseUp?: (progress: number) => void // 音轨点击时触发
   showGhostProgress?: boolean
   onGhostProgressChange?: (ghostProgress: number) => void
+  renderGhostProgress?: (left: number, ghostProgress: number) => React.ReactNode
   theme: Theme
   height?: number
 }
@@ -18,6 +19,7 @@ const Waveform: FC<WaveformProps> = ({
   showGhostProgress,
   onGhostProgressChange,
   onMouseUp,
+  renderGhostProgress,
   theme,
   height
 }) => {
@@ -110,19 +112,22 @@ const Waveform: FC<WaveformProps> = ({
 
   return useMemo(
     () => (
-      <canvas
-        ref={canvasRef}
-        onMouseEnter={getMousePosition}
-        onMouseMove={getMousePosition}
-        onMouseLeave={clearGhostProgress}
-        onMouseUp={handleMouseUp}
-        style={{
-          height,
-          width: '100%',
-          imageRendering: 'pixelated',
-          display: 'block'
-        }}
-      />
+      <>
+        <canvas
+          ref={canvasRef}
+          onMouseEnter={getMousePosition}
+          onMouseMove={getMousePosition}
+          onMouseLeave={clearGhostProgress}
+          onMouseUp={handleMouseUp}
+          style={{
+            height,
+            width: '100%',
+            imageRendering: 'pixelated',
+            display: 'block'
+          }}
+        />
+        {leftRef.current > 0 && renderGhostProgress(leftRef.current, ghostProgress)}
+      </>
     ),
     [ghostProgress, progress, data]
   )
@@ -130,7 +135,8 @@ const Waveform: FC<WaveformProps> = ({
 
 Waveform.defaultProps = {
   height: 44,
-  showGhostProgress: false
+  showGhostProgress: false,
+  renderGhostProgress: () => null
 }
 
 export default Waveform

@@ -9,3 +9,17 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.ghost-progress-label {
+  position: absolute;
+  text-align: center;
+  line-height: 24px;
+  width: 48px;
+  height: 24px;
+  font-size: 12px;
+  color: white;
+  background-color: black;
+  top: 10px;
+  pointer-events: none;
+  transform: translateX(-100%);
+}

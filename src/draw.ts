@@ -33,7 +33,7 @@ export function getWaveformBars(waveform: Array<number>, width: number, theme: T
   const step = Math.floor(Math.max(0, (1 - bars.gap) / (bars.width + bars.gap)))
   const count = waveform.length / step
 
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < step; i++) {
     let start = Math.floor(i * count)
     let end = start + Math.max(1, Math.round(count))
 
