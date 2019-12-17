@@ -10,6 +10,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+#waveform-demo {
+  padding: 0 40px;
+  position: relative;
+}
+
+#waveform-demo > h4 {
+  font-size: 28px;
+}
+
+#waveform-demo > h6 {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.waveform-options {
+  width: 360px;
+}
+
+.waveform-options > div {
+  margin: 12px 0;
+}
+
+.waveform-options label {
+  min-width: 100px;
+  text-align: right;
+}
+
+.waveform-options label::after {
+  content: ':';
+  position: relative;
+  top: -1px;
+  margin: 0 8px 0 2px;
+}
+
+.waveform-container {
+  position: absolute;
+  left: 448px;
+  top: 0;
+  width: calc(100% - 488px);
+}
+
 .ghost-progress-label {
   position: absolute;
   text-align: center;

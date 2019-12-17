@@ -3,13 +3,13 @@ import drawWaveform, { getWaveformBars } from './draw'
 import defaultTheme, { Theme } from './theme'
 
 export interface WaveformProps {
-  progress: number // 音轨的播放进度
   data: Array<number> // 波形数据
+  progress?: number // 音轨的播放进度
   onMouseUp?: (progress: number) => void // 音轨点击时触发
   showGhostProgress?: boolean
   onGhostProgressChange?: (ghostProgress: number) => void
   renderGhostProgress?: (left: number, ghostProgress: number) => React.ReactNode
-  theme: Theme
+  theme?: Theme
   height?: number
 }
 
@@ -100,6 +100,7 @@ const Waveform: FC<WaveformProps> = ({
 
     if (timer) clearTimeout(timer)
     timer = setTimeout(() => {
+      leftRef.current = 0
       setGhostProgress(0)
     }, 0)
   }
@@ -136,7 +137,8 @@ const Waveform: FC<WaveformProps> = ({
 Waveform.defaultProps = {
   height: 44,
   showGhostProgress: false,
-  renderGhostProgress: () => null
+  renderGhostProgress: () => null,
+  progress: 0
 }
 
 export default Waveform
