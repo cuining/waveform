@@ -5,6 +5,8 @@ Draw audio waveforms
 ![npm bundle size](https://badgen.net/bundlephobia/minzip/@zcool/waveform) [![Build Status](https://travis-ci.com/zcued/waveform.svg?branch=master)](https://travis-ci.com/zcued/waveform)
 [![npm version](https://badge.fury.io/js/%40zcool%2Fwaveform.svg)](https://badge.fury.io/js/%40zcool%2Fwaveform)
 
+![](https://raw.githubusercontent.com/cuining/blog/dev/Kapture%202019-12-25%20at%2018.25.52.gif)
+
 ## Table of Contents
 
 - [waveform](#waveform)
